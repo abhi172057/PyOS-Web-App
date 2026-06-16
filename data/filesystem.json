@@ -1,0 +1,127 @@
+{
+    "type": "directory",
+    "name": "root",
+    "children": [
+        {
+            "type": "file",
+            "name": "abhi.txt",
+            "content": ""
+        },
+        {
+            "type": "directory",
+            "name": "demo",
+            "children": [
+                {
+                    "type": "directory",
+                    "name": "demo",
+                    "children": []
+                },
+                {
+                    "type": "directory",
+                    "name": "subfolder",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "name": "notes.txt",
+            "content": ""
+        },
+        {
+            "type": "file",
+            "name": "logtest.txt",
+            "content": "hello"
+        },
+        {
+            "type": "file",
+            "name": "testlog.txt",
+            "content": ""
+        },
+        {
+            "type": "file",
+            "name": "c.txt",
+            "content": "hello world"
+        },
+        {
+            "type": "directory",
+            "name": "abhi",
+            "children": [
+                {
+                    "type": "directory",
+                    "name": "abhi",
+                    "children": [
+                        {
+                            "type": "file",
+                            "name": "a.txt",
+                            "content": "hello"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "name": "docs",
+            "children": [
+                {
+                    "type": "file",
+                    "name": "notes.txt",
+                    "content": ""
+                },
+                {
+                    "type": "file",
+                    "name": "a.txt",
+                    "content": ""
+                },
+                {
+                    "type": "file",
+                    "name": "b.txt",
+                    "content": ""
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "name": "file.txt",
+            "content": ""
+        },
+        {
+            "type": "file",
+            "name": "docs/b.txt",
+            "content": "hello"
+        },
+        {
+            "type": "file",
+            "name": "docs/a.txt",
+            "content": ""
+        },
+        {
+            "type": "directory",
+            "name": "dem",
+            "children": [
+                {
+                    "type": "file",
+                    "name": "a.txt",
+                    "content": "hello Abhishek"
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "name": "test",
+            "children": [
+                {
+                    "type": "file",
+                    "name": "a.txt",
+                    "content": "hello Abhishek"
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "name": "tes",
+            "children": []
+        }
+    ]
+}
