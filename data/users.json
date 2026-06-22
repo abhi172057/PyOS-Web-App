@@ -22,5 +22,9 @@
     "user4": {
         "password": "432",
         "role": "user"
+    },
+    "abhi": {
+        "password": "123",
+        "role": "user"
     }
 }

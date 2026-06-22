@@ -1,12 +1,12 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 class UserProfile(models.Model):
 
     ROLE_CHOICES = (
-        ("admin", "Admin"),
-        ("user", "User"),
+        ('ADMIN', 'Admin'),
+        ('USER', 'User'),
     )
 
     user = models.OneToOneField(
@@ -18,10 +18,8 @@ class UserProfile(models.Model):
     role = models.CharField(
         max_length=10,
         choices=ROLE_CHOICES,
-        default="user"
+        default='USER'
     )
 
-    created_at = models.DateTimeField(auto_now_add=True)
-
     def __str__(self):
-        return f"{self.user.username} ({self.role})"
+        return f"{self.user.username} - {self.role}"

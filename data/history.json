@@ -335,5 +335,14 @@
     "user3 (user) > cd subfolder",
     "user3 (user) > cd ..",
     "user3 (user) > cd ..",
-    "user3 (user) > exit"
+    "user3 (user) > exit",
+    "Guest > help",
+    "Guest > adduser Abhi",
+    "Guest > adduser abhi 123",
+    "Guest > login abhi 123",
+    "abhi (user) > whoami",
+    "abhi (user) > mkdir abhi_folder",
+    "abhi (user) > ls",
+    "abhi (user) > touch abhi_testuser.txt",
+    "abhi (user) > ls"
 ]

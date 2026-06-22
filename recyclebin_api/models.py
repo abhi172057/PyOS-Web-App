@@ -10,22 +10,17 @@ class RecycleBinItem(models.Model):
         related_name="recycle_bin"
     )
 
-    item_name = models.CharField(
-        max_length=255
-    )
+    item_name = models.CharField(max_length=255)
 
-    item_type = models.CharField(
-        max_length=20
-    )
+    item_type = models.CharField(max_length=20)  # file / directory
 
-    content = models.TextField(
-        blank=True,
-        default=""
-    )
+    original_id = models.IntegerField(null=True, blank=True)
 
-    deleted_at = models.DateTimeField(
-        auto_now_add=True
-    )
+    parent_id = models.IntegerField(null=True, blank=True)
+
+    content = models.TextField(blank=True, default="")
+
+    deleted_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.item_name} ({self.item_type})"

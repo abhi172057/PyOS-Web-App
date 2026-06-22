@@ -1458,5 +1458,50 @@
         "time": "2026-06-16 09:44:37",
         "user": "user3 (user)",
         "action": "exit"
+    },
+    {
+        "time": "2026-06-21 11:48:58",
+        "user": "Guest",
+        "action": "help"
+    },
+    {
+        "time": "2026-06-21 11:52:20",
+        "user": "Guest",
+        "action": "adduser Abhi"
+    },
+    {
+        "time": "2026-06-21 11:52:33",
+        "user": "Guest",
+        "action": "adduser abhi 123"
+    },
+    {
+        "time": "2026-06-21 12:00:32",
+        "user": "Guest",
+        "action": "login abhi 123"
+    },
+    {
+        "time": "2026-06-21 12:02:00",
+        "user": "abhi (user)",
+        "action": "whoami"
+    },
+    {
+        "time": "2026-06-21 12:03:16",
+        "user": "abhi (user)",
+        "action": "mkdir abhi_folder"
+    },
+    {
+        "time": "2026-06-21 12:04:49",
+        "user": "abhi (user)",
+        "action": "ls"
+    },
+    {
+        "time": "2026-06-21 12:07:12",
+        "user": "abhi (user)",
+        "action": "touch abhi_testuser.txt"
+    },
+    {
+        "time": "2026-06-21 12:07:59",
+        "user": "abhi (user)",
+        "action": "ls"
     }
 ]
