@@ -27,11 +27,7 @@ SECRET_KEY = 'django-insecure-%q6r)&_y06)4*dnruin=hgx3rg3*g6%i8duf&rr-^29ebv0#$$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = [
-    "pyos-web-app.onrender.com",
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1,.onrender.com").split(",")
 
 
 # Application definition
@@ -150,14 +146,13 @@ if DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True
 else:
     CORS_ALLOW_ALL_ORIGINS = False
-    CORS_ALLOWED_ORIGINS = [
-        origin.strip()
-        for origin in os.environ.get(
-            "CORS_ALLOWED_ORIGINS",
-            "http://localhost:5173,http://127.0.0.1:8000"
-        ).split(",")
-        if origin.strip()
-    ]
+
+    CORS_ALLOW_ORIGINS = os.environ.get(
+        "CORS_ALLOWED_ORIGINS", 
+        "http://localhost:5173",
+         "http://localhost:3000",
+
+    ).split(",")   
 
 from datetime import timedelta
 
