@@ -146,7 +146,17 @@ REST_FRAMEWORK = {
 }
 
 # CORS Configuration
-CORS_ALLOW_ALL_ORIGINS = True
+if DEBUG:
+    CORS_ALLOW_ALL_ORIGINS = True
+else:
+    CORS_ALLOW_ALL_ORIGINS = False
+
+    CORS_ALLOW_ORIGINS = os.environ.get(
+        "CORS_ALLOWED_ORIGUNS", 
+        "http://localhost:5173/",
+        "http://127.0.0.1:8000/"
+
+    ).split(",")  
 
 from datetime import timedelta
 
