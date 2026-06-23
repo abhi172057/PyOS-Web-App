@@ -46,26 +46,31 @@ Users can:
 ┌─────────────────┐
 │ React Frontend  │
 └────────┬────────┘
-         │ HTTP Request
+         │ HTTP Request (Axios/Fetch)
          ▼
 ┌─────────────────┐
 │ Django URLs     │
+│ (Routing Layer) │
 └────────┬────────┘
          ▼
 ┌─────────────────┐
 │ Views Layer     │
+│ Request Handler │
 └────────┬────────┘
          ▼
 ┌─────────────────┐
 │ Service Layer   │
+│ Business Logic  │
 └────────┬────────┘
          ▼
 ┌─────────────────┐
 │ Models Layer    │
+│ Django ORM      │
 └────────┬────────┘
          ▼
 ┌─────────────────┐
-│ SQLite Database │
+│ PostgreSQL DB   │
+│ (Render Cloud)  │
 └─────────────────┘
 ```
 
