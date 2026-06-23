@@ -36,7 +36,7 @@ Users can:
 
 * Django
 * Django REST Framework
-* SQLite
+* PostgreSQL DB 
 
 ---
 
@@ -350,7 +350,7 @@ UI Refresh
 
 # Author
 
-Abhishek Arya
+Abhishek Kannaujiya
 
 B.Tech CSIT
 
