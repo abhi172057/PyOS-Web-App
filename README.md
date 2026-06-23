@@ -1,56 +1,70 @@
-# PyOS Web App
+# 🚀 PyOS Web App
 
-A web-based Operating System simulation built using **Django REST Framework** and **React.js**.
-
----
-
-# Overview
-
-PyOS is a browser-based operating system simulator that provides file management functionalities similar to a real OS.
-
-Users can:
-
-* Create folders
-* Create files
-* Move files
-* Move folders
-* Delete files
-* Restore deleted files
-* Search files and folders
-* View command history
-* View system logs
-* Manage data through a modern React UI
+A cloud-based virtual operating system built using **React.js**, **Django REST Framework**, and **PostgreSQL**. PyOS simulates core operating system functionalities such as file management, folder management, recycle bin, history tracking, logging, search, and multi-user authentication through a modern web interface.
 
 ---
 
-# Tech Stack
+# 📌 Features
 
-## Frontend
+## 👤 User Management
 
-* React.js
-* React Router
-* Axios
-* CSS
+* User Registration
+* User Login
+* JWT Authentication
+* Multi-user Support
+* User Profile Management
 
-## Backend
+## 📁 File System Operations
 
-* Django
-* Django REST Framework
-* PostgreSQL DB 
+* Create Folder
+* Create File
+* List Files and Folders
+* Move Files
+* Move Folders
+* Search Files and Folders
+* Delete Files
+* Recycle Bin Support
+
+## ♻️ Recycle Bin
+
+* Soft Delete Implementation
+* Restore Deleted Files
+* Recover Original Location
+
+## 📜 History Tracking
+
+* Store User Commands
+* Track User Activities
+* Command History Management
+
+## 📊 Logging System
+
+* File Creation Logs
+* File Deletion Logs
+* Folder Creation Logs
+* Move Operation Logs
+* Error Logs
+
+## 🔒 Security
+
+* JWT Based Authentication
+* User Data Isolation
+* Owner-Based Access Control
+* Secure Password Hashing
 
 ---
 
-# Project Architecture
+# 🏗️ System Architecture
 
 ```text
 ┌─────────────────┐
 │ React Frontend  │
 └────────┬────────┘
-         │ HTTP Request (Axios/Fetch)
+         │ HTTP Request (Axios)
          ▼
 ┌─────────────────┐
 │ Django URLs     │
-│ (Routing Layer) │
+│ Routing Layer   │
 └────────┬────────┘
          ▼
 ┌─────────────────┐
@@ -70,290 +84,396 @@ Users can:
          ▼
 ┌─────────────────┐
 │ PostgreSQL DB   │
-│ (Render Cloud)  │
+│ Render Cloud DB │
 └─────────────────┘
 ```
 
 ---
 
-# Request Flow
+# ⚙️ Technology Stack
+
+## Frontend
+
+* React.js
+* Vite
+* Axios
+* React Router
+
+## Backend
+
+* Django
+* Django REST Framework
+* JWT Authentication
+* Service Layer Architecture
+
+## Database
+
+* PostgreSQL
+
+## Deployment
+
+* Render
+* PostgreSQL Render Database
+
+---
+
+# 📂 Project Structure
 
 ```text
-React
-  ↓
-API Call
-  ↓
-urls.py
-  ↓
-views.py
-  ↓
-service.py
-  ↓
-models.py
-  ↓
-Database
-  ↓
+PyOS
+│
+├── frontend/
+│   ├── src/
+│   ├── pages/
+│   ├── services/
+│   └── layouts/
+│
+├── users_api/
+├── filesystem_api/
+├── recyclebin_api/
+├── history_api/
+├── logs_api/
+│
+├── pyos_backend/
+│
+├── requirements.txt
+├── manage.py
+└── Procfile
+```
+
+---
+
+# 🔄 Complete Request Flow
+
+## Example: Create Folder
+
+```text
+User clicks "Create Folder"
+        ↓
+React Frontend
+        ↓
+POST /filesystem/mkdir/
+        ↓
+Django URL Router
+        ↓
+create_directory View
+        ↓
+FileSystemService.create_directory()
+        ↓
+Directory Model
+        ↓
+PostgreSQL Database
+        ↓
+Success Response
+        ↓
+React Updates UI
+```
+
+---
+
+# 🔐 Authentication Flow
+
+```text
+User Login
+      ↓
+JWT Token Generated
+      ↓
+Frontend Stores Token
+      ↓
+Authorization Header
+      ↓
+Backend Verifies Token
+      ↓
+request.user Available
+      ↓
+Protected APIs Accessible
+```
+
+Example Header:
+
+```http
+Authorization: Bearer <JWT_TOKEN>
+```
+
+---
+
+# 📁 File Creation Flow
+
+```text
+Frontend
+    ↓
+Create File API
+    ↓
+View Layer
+    ↓
+FileSystemService
+    ↓
+File Model
+    ↓
+PostgreSQL
+    ↓
 Response
-  ↓
-React UI Update
 ```
 
 ---
 
-# Modules
+# 🗑️ File Deletion Flow
 
-## 1. Users Module
-
-Handles:
-
-* Login
-* Registration
-* User Roles
-
-Files:
+Instead of permanently deleting files:
 
 ```text
-users_api/
+File Selected
+      ↓
+Delete API
+      ↓
+RecycleBinItem Created
+      ↓
+Original File Deleted
+      ↓
+History Updated
+      ↓
+Logs Updated
+      ↓
+Success Response
 ```
 
 ---
 
-## 2. File System Module
-
-Handles:
-
-* Create Folder
-* Create File
-* List Directory
-* Move File
-* Move Folder
-* Delete File
-
-Files:
+# ♻️ Recycle Bin Flow
 
 ```text
-filesystem_api/
+Deleted File
+      ↓
+Recycle Bin
+      ↓
+Restore Request
+      ↓
+File Recreated
+      ↓
+Original Location Restored
 ```
 
 ---
 
-## 3. Recycle Bin Module
-
-Handles:
-
-* Deleted files
-* Restore file
-* Permanent delete
-
-Files:
+# 🔍 Search Flow
 
 ```text
-recyclebin_api/
+User Search
+      ↓
+Search API
+      ↓
+SearchService
+      ↓
+Directory Query
+      ↓
+File Query
+      ↓
+Combined Result
+      ↓
+Frontend Display
 ```
 
 ---
 
-## 4. History Module
+# 📜 History Module
 
-Stores all executed commands.
-
-Examples:
+Stores user actions such as:
 
 ```text
-mkdir Projects
+mkdir Documents
 touch notes.txt
-mv notes.txt Documents
+mv file.txt Docs
 rm notes.txt
+restore notes.txt
 ```
 
-Files:
+Purpose:
 
-```text
-history_api/
-```
+* Audit Trail
+* User Activity Tracking
 
 ---
 
-## 5. Logs Module
+# 📊 Logging Module
 
-Stores system events.
-
-Examples:
+Stores system logs:
 
 ```text
 CREATE_FILE
-DELETE_FILE
+CREATE_DIRECTORY
 MOVE_FILE
+DELETE_FILE
 RESTORE_FILE
+ERROR
 ```
 
-Files:
+Purpose:
+
+* Debugging
+* Monitoring
+* Tracking System Events
+
+---
+
+# 🛡️ Security Implementation
+
+Every file and folder belongs to a user.
+
+Example:
+
+```python
+owner=request.user
+```
+
+Query Protection:
+
+```python
+Directory.objects.filter(owner=request.user)
+```
+
+Result:
 
 ```text
-logs_api/
+User A cannot access User B data.
 ```
 
 ---
 
-# Database Design
+# 🗄️ Database Models
+
+## UserProfile
+
+```text
+User
+Role
+```
 
 ## Directory
 
 ```text
-id
-name
-owner
-parent
-created_at
+Name
+Owner
+Parent Directory
+Created Time
 ```
-
----
 
 ## File
 
 ```text
-id
-name
-content
-owner
-directory
-created_at
+Name
+Content
+Owner
+Directory
 ```
-
----
 
 ## RecycleBinItem
 
 ```text
-id
-owner
-item_name
-item_type
-content
-parent_id
-deleted_at
+Owner
+Item Name
+Item Type
+Parent ID
+Original ID
 ```
-
----
-
-# Implemented Features
-
-## File Explorer
-
-* Browse folders
-* Browse files
-* Breadcrumb navigation
-
----
-
-## File Operations
-
-* Create file
-* Open file
-* Move file
-* Delete file
-
----
-
-## Folder Operations
-
-* Create folder
-* Open folder
-* Move folder
-
----
-
-## Recycle Bin
-
-* Soft delete
-* Restore
-* Permanent delete
-
----
-
-## Search
-
-Search files and folders instantly.
-
----
 
 ## History
 
-Track all commands executed by the user.
-
----
+```text
+User
+Command
+Timestamp
+```
 
 ## Logs
 
-Track all system actions.
-
----
-
-# Security Layer
-
-Implemented through:
-
 ```text
-FileSystemSecurity
-```
-
-Checks:
-
-* Ownership validation
-* Read permissions
-* Write permissions
-
----
-
-# Example Flow
-
-## Create File
-
-```text
-User clicks Create File
-      ↓
-React sends POST request
-      ↓
-Django URL
-      ↓
-View
-      ↓
-FileSystemService.create_file()
-      ↓
-File Model
-      ↓
-Database
-      ↓
-History Log
-      ↓
-System Log
-      ↓
-Response
-      ↓
-UI Refresh
+User
+Action
+Description
+Timestamp
 ```
 
 ---
 
-# Future Enhancements
+# 🚀 Deployment
 
-* Rename File
-* Rename Folder
-* Delete Folder
-* Download File
-* Upload File
-* Share Files
+## Backend
+
+* Render Web Service
+* Gunicorn
+* PostgreSQL Database
+
+## Frontend
+
+* Vercel / Netlify / Render Static Site
+
+---
+
+# 🧪 API Modules
+
+### Users API
+
+* Register User
+* Login User
+* Current User
+* Update User
+
+### Filesystem API
+
+* Create Folder
+* Create File
+* Move File
+* Move Directory
+* Delete File
+* List Directory
+* Search
+
+### Recycle Bin API
+
+* Restore File
+* View Recycle Bin
+
+### History API
+
+* View User History
+
+### Logs API
+
+* View System Logs
+
+---
+
+# 🎯 Key Backend Concepts Used
+
+* REST APIs
+* JWT Authentication
+* Django ORM
+* PostgreSQL
+* Service Layer Architecture
+* Role-Based Access Control
+* Recycle Bin Mechanism
+* Activity History Tracking
+* Centralized Logging
+* Cloud Deployment
+
+---
+
+# 👨‍💻 Author
+
+** Abhishek Kannaujiya **
+
+B.Tech (CSIT)
+
+Backend Developer | Java | JavaScript | Django | React | PostgreSQL
+
+---
+
+# ⭐ Future Enhancements
+
+* File Upload Support
+* File Download Support
+* Folder Sharing
+* User Roles & Permissions
+* Real-Time Collaboration
+* Cloud Storage Integration
 * Admin Dashboard
-* Real-time Notifications
-
----
-
-# Author
-
-Abhishek Kannaujiya
-
-B.Tech CSIT
-
-Dronacharya Group of Institutions
-
-Greater Noida
